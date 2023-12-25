@@ -1,6 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost:27017/chats', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).catch((error) => print(error));
+print("Connected to MongoDB");
+
 const userSchema = new mongoose.Schema({
     id: String,
     following: [{
